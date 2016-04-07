@@ -2,17 +2,22 @@
   "source": "src",
   "destination": "dist",
   "plugins": {
+    "metalsmith-babel": {
+      "presets": [
+        "es2015"
+      ]
+    },
+    "metalsmith-sass": {
+      "outputStyle": "expanded",
+      "sourceMap": "true",
+      "sourceMapContents": "true"
+    },
     "metalsmith-markdown": {
       "smartypants": true
     },
     "metalsmith-layouts": {
       "engine": "handlebars",
       "partials": "layouts/partials"
-    },
-    "metalsmith-sass": {
-      "outputStyle": "expanded",
-      "sourceMap": "true",
-      "sourceMapContents": "true"
     }
   }
 }
