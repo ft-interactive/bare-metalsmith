@@ -2,4 +2,4 @@
 title: Page title
 layout: layout.html
 ---
-Content goes here.
+# Here's your listicle from JSON data:
