@@ -1,0 +1,26 @@
+{
+  "name": "bare-metalsmith",
+  "version": "1.0.0",
+  "description": "Boilerplate Metalsmith project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/.bin/metalsmith"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidbjourno/bare-metalsmith.git"
+  },
+  "author": "davidbjourno",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidbjourno/bare-metalsmith/issues"
+  },
+  "homepage": "https://github.com/davidbjourno/bare-metalsmith#readme",
+  "devDependencies": {
+    "handlebars": "^4.0.5",
+    "metalsmith": "^2.1.0",
+    "metalsmith-layouts": "^1.6.4",
+    "metalsmith-markdown": "^0.2.1"
+  }
+}
