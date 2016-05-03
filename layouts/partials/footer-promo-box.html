@@ -1,0 +1,13 @@
+<div class="footer-teasers">
+  <!--<h5>Latest projects</h5>-->
+  <!-- get five most recent stories -->
+  {% for post in posts limit:5 %}
+  <div class="stories__story--container">
+    <a href="http://www.ft.com/cms/s/2/{{ post.uuid }}.html">
+    <div class="stories__story--headline">{{ post.headline }}</div>
+    <div class="stories__story--image"><img class="stories__story--image" src="https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fim.ft-static.com%2Fcontent%2Fimages%2F{{ post.master }}.img?source=ig&width=167" alt="{{ post.link }}"></div>
+    </a>
+    <div class="stories__story--blurb">{{ post.standfirst }}</div>
+  </div>
+  {% endfor %}
+</div>

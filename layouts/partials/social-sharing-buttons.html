@@ -1,0 +1,40 @@
+<!-- todo: fix links and url-encoding -->
+<div class="o-grid-row">
+  <div data-o-grid-colspan="12 S11 Scenter M9 L8 XL7 center">
+    <div data-o-component="o-share" class="o-share">
+    	<ul>
+        <li class="o-share__action o-share__action--twitter">
+    			<a href="https://twitter.com/intent/tweet?url={{ page.url}}&amp;text={{ page.blurb }}&amp;related=ft&amp;via=FT"><i>Twitter</i></a>
+    		</li>
+
+        <li class="o-share__action o-share__action--facebook">
+    			<a href="http://www.facebook.com/sharer.php?u={{ page.url}}&amp;t={{ page.title }}"><i>Facebook</i></a>
+    		</li>
+
+        <li class="o-share__action o-share__action--linkedin">
+    			<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ page.url}}&amp;title={{ page.title }}&amp;summary=US+drugs+group+vows+to+maintain+big+British+presence&amp;source=Financial+Times"><i>LinkedIn</i></a>
+    		</li>
+
+        <li class="o-share__action o-share__action--whatsapp">
+    			<a target="_blank" href="whatsapp://send?text={{ page.blurb }}%20-%20{{ page.url}}" data-trackable="whatsapp"><i>Whatsapp</i></a>
+    		</li>
+
+        <li class="o-share__action o-share__action--googleplus">
+    			<a href="https://plus.google.com/share?url={{ page.url }}"><i>Google+</i></a>
+    		</li>
+
+        <li class="o-share__action o-share__action--reddit">
+    			<a href="http://reddit.com/submit?url={{ page.url }}"><i>Reddit</i></a>
+    		</li>
+    		
+        <li class="o-share__action o-share__action--pinterest">
+    			<a href="http://www.pinterest.com/pin/create/button/?url={{ page.url }}&amp;description={{ page.blurb }}"><i>Pinterest</i></a>
+    		</li>
+
+        <li class="o-share__action o-share__action--url">
+    			<a href="{{ page.url }}"><i>URL</i></a>
+    		</li>
+      </ul>
+    </div>
+  </div>
+</div>

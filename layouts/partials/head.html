@@ -1,8 +1,40 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <script src="scripts/main.js"></script>
-  </head>
+<head>
+  <title>
+    {{#if page.title}}{{page.title}} - {{/if}}{{site.title}} - Financial Times
+  </title>
+
+  <!-- meta and social -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{#if page.excerpt}}{{page.excerpt}}{{else}}{{site.description}}{{/if}}">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="index,follow">
+  <meta name="copyright" content="Financial Times">
+  <meta name="theme-color" content="#fff1e0">
+
+  <meta property="fb:page_id" content="{{site.fb-page}}">
+  <meta property="og:type" content="{{site.og-type}}">
+  <meta property="og:title" content="{{site.og-title}}">
+  <meta property="og:description" content="{{site.og-desc}}">
+  <meta property="og:image" content="{{site.og-img}}">
+
+  <link rel="publisher" href="{{site.google-plus}}">
+  <link rel="canonical" href="{{site.base-url}}{{site.url}}{{page.url}}">
+  <link rel="image_src" href="https://ig.ft.com/{{site.social-image}}">
+  <link rel="alternate" href="{{site.base-url}}{{site.url}}/feed.xml" title="{{site.title}}" type="application/rss+xml">
+  <link rel="shortcut icon" href="https://ig.ft.com/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="//im.ft-static.com/m/icons/apple-touch-icon.png">
+
+  <!-- Scripts -->
+  <script src="scripts/top.js"></script>
+
+  <!-- Styles -->
+  {{#if site.o-stylesheet}}
+    <link rel="stylesheet" href="{{site.o-stylesheet}}">
+  {{/if}}
+  <link rel="stylesheet" href="css/top.css">
+  <link rel="stylesheet" href="{{site.base-url}}styles/main.css">
+
+  <!-- <script src="scripts/main.js"></script> -->
+</head>
