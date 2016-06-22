@@ -11,6 +11,8 @@ const browsersync = require('metalsmith-browser-sync');
 
 // Plugin options
 const metadataFiles = {
+  site: 'site.yaml',
+  page: 'page.yaml',
   items: 'list.json'
 };
 const babelOptions = {
