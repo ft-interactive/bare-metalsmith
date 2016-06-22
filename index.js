@@ -18,6 +18,8 @@ Metalsmith(__dirname)
   .clean(false)
   .metadata({})
   .use(metadata({
+    site: 'site.yaml',
+    page: 'page.yaml',
     items: 'list.json'
   }))
   .use(markdown({
