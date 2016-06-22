@@ -6,6 +6,7 @@ const layouts = require('metalsmith-layouts');
 const metadata = require('metalsmith-metadata');
 const sass = require('metalsmith-sass');
 const babel = require('metalsmith-babel');
+const ignore = require('metalsmith-ignore');
 
 // Plugin options
 const babelOptions = {
@@ -34,6 +35,10 @@ Metalsmith(__dirname)
     outputStyle: 'expanded'
   }))
   .use(babel(babelOptions))
+  .use(ignore([
+    '*.yaml',
+    '*.json'
+  ]))
   .build((err, files) => {
     if (err) {
       throw err;
