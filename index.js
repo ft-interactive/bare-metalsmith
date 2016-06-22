@@ -13,13 +13,13 @@ const babelOptions = {
 };
 
 Metalsmith(__dirname)
+  .source('./src')
+  .destination('./dist')
+  .clean(false)
   .metadata({})
   .use(metadata({
     items: 'list.json'
   }))
-  .source('./src')
-  .destination('./dist')
-  .clean(false)
   .use(markdown({
     smartypants: true,
     gfm: true,
