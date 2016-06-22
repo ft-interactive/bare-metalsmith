@@ -18,8 +18,8 @@ Metalsmith(__dirname)
   .use(metadata({
     items: 'list.json'
   }))
-  .source('./src')
-  .destination('./dist')
+  .source('src')
+  .destination('dist')
   .clean(false)
   .use(markdown({
     smartypants: true,
