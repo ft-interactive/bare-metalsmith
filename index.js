@@ -1,21 +1,25 @@
 const Metalsmith = require('metalsmith');
 
 // Plugins
+const metadata = require('metalsmith-metadata');
+const request = require('metalsmith-request');
 const markdown = require('metalsmith-markdown');
 const layouts = require('metalsmith-layouts');
-const metadata = require('metalsmith-metadata');
 const sass = require('metalsmith-sass');
 const babel = require('metalsmith-babel');
-const ignore = require('metalsmith-ignore');
 const browsersync = require('metalsmith-browser-sync');
+const ignore = require('metalsmith-ignore');
 
 // Plugin options
 const metadataFiles = {
   items: 'list.json'
 };
-const babelOptions = {
-  presets: ['es2015']
+const remoteData = {
+  feed: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/data'
 };
+const gotOptions = {
+  json: true
+}
 const markdownOptions = {
   smartypants: true,
   gfm: true,
@@ -29,6 +33,9 @@ const layoutsOptions = {
 const sassOptions = {
   outputStyle: 'expanded'
 };
+const babelOptions = {
+  presets: ['es2015']
+};
 const browsersyncOptions = {
   server: "dist",
   files: ["src/**/*.md", "layouts/**/*.hbs"]
@@ -39,6 +46,7 @@ Metalsmith(__dirname)
   .destination('dist')
   .clean(false)
   .use(metadata(metadataFiles))
+  .use(request(remoteData, gotOptions))
   .use(markdown(markdownOptions))
   .use(layouts(layoutsOptions))
   .use(sass(sassOptions))
