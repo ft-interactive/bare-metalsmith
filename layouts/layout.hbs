@@ -1,12 +1,36 @@
 {{> head}}
   <body>
-    {{{contents}}}
-    <!-- Parse list.json as items object, iterating over the array -->
-    {{#each feed}}
-      <h2>{{company}}</h2>
-      <p>
-        {{copy}}
-      </p>
-    {{/each}}
+    <!--
+      REPLACE THIS COMMENT WITH A TRACKING SNIPPET
+      http://ft-interactive.github.io/tracking-snippet-generator/
+    -->
+
+    {{> header}}
+
+    <main role="main">
+      <article class="article">
+        <div class="article-head o-grid-container">
+          <div class="o-grid-row">
+            <header data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
+              {{> share}}
+
+              {{> article-header}}
+            </header>
+          </div>
+        </div>
+
+        <div class="article-body o-typography-body-wrapper">
+          {{{contents}}}
+
+          <!-- Parse Bertha data as feed object, iterating over the array -->
+          {{#each feed}}
+            {{> feed-item}}
+          {{/each}}
+        </div>
+      </article>
+    </main>
+
+    {{> footer}}
+    <script src="scripts/main.js"></script>
   </body>
 </html>

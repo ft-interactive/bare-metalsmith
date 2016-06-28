@@ -11,9 +11,7 @@ const browsersync = require('metalsmith-browser-sync');
 const ignore = require('metalsmith-ignore');
 
 // Plugin options
-const metadataFiles = {
-  items: 'list.json'
-};
+const metadataFiles = {};
 const remoteData = {
   feed: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/data'
 };

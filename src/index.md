@@ -1,5 +1,4 @@
 ---
-title: Page title
+title: Brexit impact tracker
 layout: layout.hbs
 ---
-# Here's your listicle from JSON data:
