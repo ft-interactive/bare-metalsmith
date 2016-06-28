@@ -166,10 +166,13 @@ header > p {
   margin-bottom: 14px;
 }
 
+.o-typography-flyline__link {
+  font-size: 18px;
+}
+
 .o-typography-flyline__link,
 .article__byline a {
   color: #9e2f50;
-  font-size: 16px;
   text-transform: none;
   text-decoration: none;
   font-weight: 600;
@@ -216,7 +219,10 @@ header > p {
 }
 
 @include oGridRespondTo (M) {
-  .o-typography-heading1 {
+  .o-typography-flyline__link {
+    font-size: 20px;
+  }
+.o-typography-heading1 {
     line-height: 52px;
     font-size: 50px;
   }
