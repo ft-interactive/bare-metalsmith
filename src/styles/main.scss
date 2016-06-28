@@ -56,8 +56,8 @@ $share-button-size: 33px;
 
 .article {
   &-head {
-    margin-top: 38px;
-    margin-bottom: 2em;
+    margin-top: 28px;
+    margin-bottom: 1.5em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     time {
@@ -158,11 +158,11 @@ header > p {
 .o-share {
   float: right;
   position: relative;
-  bottom: 20px;
+  bottom: 16px;
 }
 
 .o-typography-flyline {
-  margin-bottom: 14px;
+  margin-bottom: 19px;
   letter-spacing: 0.2px;
 }
 
@@ -184,8 +184,8 @@ header > p {
   }
 }
 .o-typography-heading1 {
-  font-size: 40px;
-  padding-top: 30px;
+  font-size: 42px;
+  padding-top: 10px;
   border-top: 1px solid #cec6b9;
   line-height: 42px;
 }
@@ -218,9 +218,18 @@ header > p {
 }
 
 @include oGridRespondTo (M) {
+  .article {
+    &-head {
+      margin-top: 28px;
+      margin-bottom: 2em;
+    }
+  }
   header > h1,
   header > p {
     text-align: center;
+  }
+  .o-typography-flyline {
+    margin-bottom: 14px;
   }
   .o-typography-flyline__link {
     font-size: 20px;
@@ -228,6 +237,7 @@ header > p {
   .o-typography-heading1 {
     line-height: 52px;
     font-size: 50px;
+    padding-top: 30px;
   }
   .o-typography-lead {
     font-size: 22px;
