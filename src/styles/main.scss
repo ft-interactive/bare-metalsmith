@@ -18,7 +18,7 @@ body {
   }
 }
 
-$share-button-size: 35px;
+$share-button-size: 33px;
 .o-share--muted {
   .o-share__action {
     line-height: $share-button-size;
@@ -46,6 +46,10 @@ $share-button-size: 35px;
 
     &--facebook i {
       background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMTQgLTEwNSA0MCA0MCI+PHBhdGggZmlsbD0iI2E3YTU5YiIgZD0iTS05Ny05MS40NHYyLjk1aC0yLjE3djMuNjJILTk3djEwLjcyaDQuNDN2LTEwLjcyaDNzLjI2LTEuNzMuNC0zLjYyaC0zLjM4di0yLjQ3YzAtLjM3LjUtLjg3Ljk2LS44N2gyLjQzdi0zLjc1aC0zLjI4Yy00LjY2IDAtNC41NSAzLjYzLTQuNTUgNC4xNnoiLz48L3N2Zz4=)
+    }
+
+    &--linkedin i {
+      background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMTMgLTEwMyA0MCA0MCI+PHBhdGggZmlsbD0iI2E3YTU5YiIgZD0iTS0xMDMuMzMyLTkxLjMzYy41My41MzUgMS4xNy44MDMgMS45MTcuODAzLjc1IDAgMS4zODgtLjI2OCAxLjkxNy0uODAzLjUzLS41MzUuNzk1LTEuMTgzLjc5NS0xLjk0MiAwLS43Ni0uMjY1LTEuNDA0LS43OTUtMS45MzRzLTEuMTctLjc5NS0xLjkxNy0uNzk1Yy0uNzQ4IDAtMS4zODcuMjYtMS45MTcuNzlzLS43OTUgMS4xNy0uNzk1IDEuOTMuMjY1IDEuNDA3Ljc5NSAxLjk0MnptNC4yMzYgMTcuNTgzdi0xNC44M2gtNC41ODh2MTQuODNoNC41ODh6bTE3LjIyMyAwdi05LjM5YzAtMS45MjMtLjQ5LTMuMzg3LTEuNDc1LTQuMzkyLS45ODMtMS0yLjI5NC0xLjUtMy45MzMtMS41LS41OSAwLTEuMTUuMDg2LTEuNjcuMjU1LS41Mi4xNy0uOTQuMzc0LTEuMjcuNjE1LS4zMy4yNC0uNjE3LjQ4LS44Ni43Mi0uMjQ4LjI0LS40Mi40NDItLjUxOC42MDZsLS4xNjUuMjZ2LTEuOTk2aC00LjQwOHYxNC44M2g0LjQwN3YtNy43ODVjMC0xLjA2LjI0LTEuODguNzItMi40Ni40ODQtLjU4IDEuMTc3LS44NjcgMi4wODQtLjg2NyAxLjY3IDAgMi41MDggMS4xMSAyLjUwOCAzLjMyN3Y3Ljc4aDQuNTc0eiIvPjwvc3ZnPg==)
     }
   }
 }
@@ -138,7 +142,6 @@ $share-button-size: 35px;
 
 header > h1,
 header > p {
-  text-align: center;
   margin: 12px 0;
 }
 
@@ -187,7 +190,6 @@ header > p {
   font-style: normal;
   color: #777777;
   font-size: 18px;
-  margin: 0 auto;
   text-align: left;
   max-width: 625px;
   line-height: 22px;
@@ -212,16 +214,22 @@ header > p {
 }
 
 @include oGridRespondTo (M) {
+  header > h1,
+  header > p {
+    text-align: center;
+  }
   .o-typography-flyline__link {
     font-size: 20px;
   }
-.o-typography-heading1 {
+  .o-typography-heading1 {
     line-height: 52px;
     font-size: 50px;
   }
   .o-typography-lead {
     font-size: 22px;
-    line-height: 26px
+    line-height: 26px;
+    margin: 0 auto;
+
   }
   .company__card {
     > h2 {
