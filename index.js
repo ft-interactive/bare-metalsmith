@@ -29,7 +29,8 @@ const layoutsOptions = {
   rename: true
 };
 const sassOptions = {
-  outputStyle: 'expanded'
+  outputStyle: 'expanded',
+  includePaths: ['bower_components'],
 };
 const babelOptions = {
   presets: ['es2015']
