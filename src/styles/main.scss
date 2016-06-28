@@ -1,5 +1,6 @@
 @import 'o-colors/main';
 @import 'o-grid/main';
+@import 'o-visual-effects/main';
 
 $font-sans: MetricWeb, sans-serif;
 $font-serif: Georgia, serif;
@@ -178,9 +179,9 @@ header > p {
 }
 
 .feed-item {
+  @include oEffectsShadowsElevation('low', #cec6b9);
   background-color: #ffffff;
   border-radius: 4px;
-  box-shadow: 0 1px 1px 0 #cec6b9;
   margin-bottom: 1em;
   padding: 20px;
   > h2 {
