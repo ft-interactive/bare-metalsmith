@@ -1,0 +1,12 @@
+@import 'bower_components/o-colors/main';
+
+$font-sans: MetricWeb, sans-serif;
+$font-serif: Georgia, serif;
+$font-display: FinancierDisplayWeb, Georgia, serif;
+
+body {
+  @include oColorsFor(page, background);
+  margin: 0;
+  border: 0;
+  font-family: $font-sans;
+}

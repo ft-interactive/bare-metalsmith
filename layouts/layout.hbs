@@ -2,13 +2,15 @@
 <html>
 {{> head}}
   <body>
-    {{{contents}}}
-    <!-- Parse list.json as items object, iterating over the array -->
-    {{#each items}}
-      <h2>{{heading}}</h2>
-      <p>
-        {{copy}}
-      </p>
-    {{/each}}
+    <div class="o-grid-container">
+      {{{contents}}}
+      <!-- Parse list.json as items object, iterating over the array -->
+      {{#each items}}
+        <h2>{{heading}}</h2>
+        <p>
+          {{copy}}
+        </p>
+      {{/each}}
+    </div>
   </body>
 </html>

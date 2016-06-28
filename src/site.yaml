@@ -33,7 +33,7 @@ apple-touch-icon: "//im.ft-static.com/m/icons/apple-touch-icon.png"
 social-image: http://www.ft.com/path/to/default/picture/socialmediaimage.png # URL of default social media image
 
 # Origami styles
-o-stylesheet: "https://h2.ft.com/build/v2/bundles/css?modules=n-normalize@^1,o-footer@^4,o-fonts@^2,o-grid@^4"
+o-stylesheet: "https://h2.ft.com/build/v2/bundles/css?modules=n-normalize@^1,o-fonts@^2,o-footer@^4,o-grid@^4"
 
 # Bertha
 berthakey: "1m8GiTLGQTq2U7LgeL6alAD0jxIygQAqldPOcmDgapq4"
