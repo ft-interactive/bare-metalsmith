@@ -18,11 +18,12 @@
 
         <div class="article-body o-typography-body-wrapper">
           {{{contents}}}
-
-          {{#each agg}}
-          {{indexname}}
-          {{value}}
-          {{/each}}
+          <div class="aggregate" class="o-grid-row">
+            <h2>Change in total value since June 24</h2>
+            {{#each agg}}
+              {{> agg-item}}
+            {{/each}}
+          </div>
 
           <!-- Parse Bertha data as feed object, iterating over the array -->
           {{#each feed}}
