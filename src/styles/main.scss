@@ -112,31 +112,8 @@ $share-button-size: 35px;
 }
 
 // Custom
-// .o-typography-flyline__link, .article__byline a {
-//   @include oColorsFor(link);
-// }
-
-// .dashboard-container {
-//   img {
-//     width: 100%;
-//   }
-// }
-//
-// .ticker-container {
-//   @include oColorsFor(box);
-//   margin-bottom: 6px !important;
-//   padding: 6px 0.75em !important;
-// }
-
 .article__byline.updated {
   margin-left: 10px;
-}
-
-.feed-item {
-  @include oColorsFor(box);
-
-  margin-bottom: -20px;
-  border-bottom: 1px dotted;
 }
 
 .o-header__meganav-toggle {
@@ -150,7 +127,7 @@ header > p {
 }
 
 .article__timestamp,
-.company__card > small {
+.feed-item > small {
   color: #8b572a;
   font-size: 13px;
   line-height: 1.2em;
@@ -200,7 +177,7 @@ header > p {
   line-height: 22px;
 }
 
-.company__card {
+.feed-item {
   background-color: #ffffff;
   border-radius: 4px;
   box-shadow: 0 1px 1px 0 #cec6b9;
@@ -230,7 +207,7 @@ header > p {
     font-size: 22px;
     line-height: 26px
   }
-  .company__card {
+  .feed-item {
     > h2 {
       font-size: 24px;
       line-height: 25px;
@@ -250,7 +227,7 @@ header > p {
     font-size: 24px;
     line-height: 28px
   }
-  .company__card {
+  .feed-item {
     > h2 {
       font-size: 26px;
       line-height: 27px;
