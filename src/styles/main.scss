@@ -80,7 +80,6 @@ $share-button-size: 33px;
     & > :not(.graphic) {
       max-width: 625px;
       margin: 1em auto;
-      padding: 0 0.75em;
     }
   }
 }
@@ -112,8 +111,8 @@ $share-button-size: 33px;
 }
 
 // Custom
-.article__byline.updated {
-  margin-left: 10px;
+.article__byline.credits {
+  margin-right: 10px;
 }
 
 .o-header__meganav-toggle {
@@ -176,7 +175,8 @@ header > p {
   line-height: 22px;
 }
 
-.feed-item {
+.feed-item,
+.aggregate {
   box-shadow: 0 1px 1px 0 #cec6b9;
   background-color: #ffffff;
   border-radius: 4px;
@@ -191,9 +191,46 @@ header > p {
   > p {
     color: #505050;
     font: 16px/1.4 Georgia,serif;
+    margin-bottom: 0;
   }
 }
 
+.aggregate {
+  text-align: center;
+  overflow: hidden;
+  max-width: 625px;
+  box-sizing: border-box;
+  h2 {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    font-size: 22px;
+  }
+  .agg-item{
+    text-align: left;
+    padding-left: 0;
+    &:first-child {
+      border-right: 0;
+      border-bottom: 1px solid #e9decf;
+      padding-bottom: 10px;
+    }
+    > h2,
+    p {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+    > h2 {
+      margin-top: 0.4em;
+      font-weight: normal;
+      font-size: 18px;
+    }
+    > p {
+      font-family: $font-sans;
+      font-weight: 200;
+      font-size: 24px;
+      color: #cc0000;
+    }
+  }
+}
 @include oGridRespondTo (M) {
   .article {
     &-head {
@@ -222,6 +259,34 @@ header > p {
     margin: 0 auto;
 
   }
+  .aggregate {
+    h2 {
+      font-size: 24px;
+      margin-top: 0;
+      margin-bottom: 1em;
+    }
+    .agg-item{
+      text-align: center;
+      &:first-child {
+        border-right: 1px solid #cec6b9;
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+      > h2,
+      p {
+        display: block;
+      }
+      > h2 {
+        font-size: 24px;
+        margin-top: 0;
+        line-height: 16px;
+      }
+      > p {
+        font-size: 36px;
+        line-height: 30px;
+      }
+    }
+  }
   .feed-item {
     > h2 {
       font-size: 24px;
@@ -246,6 +311,11 @@ header > p {
     > h2 {
       font-size: 26px;
       line-height: 27px;
+    }
+  }
+  .aggregate{
+    h2 {
+      font-size: 26px;
     }
   }
 }
