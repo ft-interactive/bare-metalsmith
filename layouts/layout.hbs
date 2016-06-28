@@ -19,6 +19,11 @@
         <div class="article-body o-typography-body-wrapper">
           {{{contents}}}
 
+          {{#each agg}}
+          {{indexname}}
+          {{value}}
+          {{/each}}
+
           <!-- Parse Bertha data as feed object, iterating over the array -->
           {{#each feed}}
             {{> feed-item}}
