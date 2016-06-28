@@ -47,6 +47,10 @@ $share-button-size: 35px;
     &--facebook i {
       background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMTQgLTEwNSA0MCA0MCI+PHBhdGggZmlsbD0iI2E3YTU5YiIgZD0iTS05Ny05MS40NHYyLjk1aC0yLjE3djMuNjJILTk3djEwLjcyaDQuNDN2LTEwLjcyaDNzLjI2LTEuNzMuNC0zLjYyaC0zLjM4di0yLjQ3YzAtLjM3LjUtLjg3Ljk2LS44N2gyLjQzdi0zLjc1aC0zLjI4Yy00LjY2IDAtNC41NSAzLjYzLTQuNTUgNC4xNnoiLz48L3N2Zz4=)
     }
+
+    &--linkedin i {
+
+    }
   }
 }
 
@@ -57,7 +61,6 @@ $share-button-size: 35px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     time {
-      margin-left: 10px;
       text-transform: uppercase;
     }
     .o-share--vertical {
@@ -124,6 +127,10 @@ $share-button-size: 35px;
 //   margin-bottom: 6px !important;
 //   padding: 6px 0.75em !important;
 // }
+
+.article__byline.updated {
+  margin-left: 10px;
+}
 
 .feed-item {
   @include oColorsFor(box);
