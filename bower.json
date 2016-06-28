@@ -3,7 +3,6 @@
   "dependencies": {
     "o-colors": "^3.4.1",
     "o-grid": "^4.2.0",
-    "sass-mq": "~3.2.9",
-    "o-visual-effects": "~0.1.0"
+    "sass-mq": "~3.2.9"
   }
 }
