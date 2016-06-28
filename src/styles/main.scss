@@ -1,4 +1,5 @@
-@import '../../bower_components/o-colors/main';
+@import 'o-colors/main';
+@import 'o-grid/main';
 
 $font-sans: MetricWeb, sans-serif;
 $font-serif: Georgia, serif;
@@ -17,7 +18,7 @@ body {
   }
 }
 
-$share-button-size: 38px;
+$share-button-size: 35px;
 .o-share--muted {
   .o-share__action {
     line-height: $share-button-size;
@@ -51,8 +52,14 @@ $share-button-size: 38px;
 
 .article {
   &-head {
-    margin-top: 18px;
-    margin-bottom: 18px;
+    margin-top: 38px;
+    margin-bottom: 2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    time {
+      margin-left: 10px;
+      text-transform: uppercase;
+    }
     .o-share--vertical {
       float: right;
       .o-share__action {
@@ -102,9 +109,9 @@ $share-button-size: 38px;
 }
 
 // Custom
-.o-typography-flyline__link, .article__byline a {
-  @include oColorsFor(link);
-}
+// .o-typography-flyline__link, .article__byline a {
+//   @include oColorsFor(link);
+// }
 
 // .dashboard-container {
 //   img {
@@ -123,4 +130,117 @@ $share-button-size: 38px;
 
   margin-bottom: -20px;
   border-bottom: 1px dotted;
+}
+
+.o-header__meganav-toggle {
+  margin-bottom: 13px;
+}
+
+header > h1,
+header > p {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.article__timestamp,
+.company__card > small {
+  color: #8b572a;
+  font-size: 13px;
+  line-height: 1.2em;
+}
+
+.o-share {
+  float: right;
+  position: relative;
+  bottom: 20px;
+}
+
+.o-typography-flyline {
+  margin-bottom: 14px;
+}
+
+.o-typography-flyline__link,
+.article__byline a {
+  color: #9e2f50;
+  font-size: 16px;
+  text-transform: none;
+  text-decoration: none;
+  font-weight: 600;
+  &:hover {
+    border-bottom-color: #4f1828;
+    color: #4f1828;
+    border-bottom-style: dotted;
+    border-bottom-width: 1px;
+  }
+}
+.o-typography-heading1 {
+  font-size: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #cec6b9;
+  line-height: 42px;
+}
+
+.o-typography-lead {
+  font-style: normal;
+  color: #777777;
+  font-size: 18px;
+  margin: 0 auto;
+  text-align: left;
+  max-width: 625px;
+  line-height: 22px;
+}
+
+.company__card {
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px 0 #cec6b9;
+  margin-bottom: 1em;
+  padding: 20px;
+  > h2 {
+    margin-top: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 22px;
+    line-height: 23px;
+  }
+  > p {
+    color: #505050;
+    font: 16px/1.4 Georgia,serif;
+  }
+}
+
+@include oGridRespondTo (M) {
+  .o-typography-heading1 {
+    line-height: 52px;
+    font-size: 50px;
+  }
+  .o-typography-lead {
+    font-size: 22px;
+    line-height: 26px
+  }
+  .company__card {
+    > h2 {
+      font-size: 24px;
+      line-height: 25px;
+    }
+    > p {
+      font: 18px/1.4 Georgia,serif;
+    }
+  }
+}
+
+@include oGridRespondTo (L) {
+  .o-typography-heading1 {
+    line-height: 62px;
+    font-size: 60px;
+  }
+  .o-typography-lead {
+    font-size: 24px;
+    line-height: 28px
+  }
+  .company__card {
+    > h2 {
+      font-size: 26px;
+      line-height: 27px;
+    }
+  }
 }
