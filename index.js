@@ -30,7 +30,7 @@ const layoutsOptions = {
 };
 const sassOptions = {
   outputStyle: 'expanded',
-  includePaths: ['bower_components'],
+  includePaths: ['bower_components']
 };
 const babelOptions = {
   presets: ['es2015']

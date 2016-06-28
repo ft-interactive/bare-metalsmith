@@ -61,7 +61,6 @@ $share-button-size: 33px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     time {
-      margin-left: 10px;
       text-transform: uppercase;
     }
     .o-share--vertical {
@@ -128,6 +127,10 @@ $share-button-size: 33px;
 //   margin-bottom: 6px !important;
 //   padding: 6px 0.75em !important;
 // }
+
+.article__byline.updated {
+  margin-left: 10px;
+}
 
 .feed-item {
   @include oColorsFor(box);
