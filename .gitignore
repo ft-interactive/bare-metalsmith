@@ -34,3 +34,5 @@ node_modules
 
 # Metalsmith build directory
 dist
+
+bower_components
