@@ -1,5 +1,7 @@
 ---
+layout: index.hbs
 title: 'Brexit business tracker: jobs, profits and investment watch | FT.com'
 headline: Brexit business tracker
-layout: index.hbs
+flyline: Brexit
+flylineUrl: http://www.ft.com/eu-referendum
 ---
