@@ -1,6 +1,7 @@
 const Metalsmith = require('metalsmith');
 
 // Plugins
+const helpers = require('metalsmith-register-helpers');
 const metadata = require('metalsmith-metadata');
 const request = require('metalsmith-request');
 const markdown = require('metalsmith-markdown');
@@ -46,6 +47,9 @@ const ignoreOptions = ['*.yaml', '*.json']
 Metalsmith(__dirname)
   .destination('dist')
   .clean(false)
+  .use(helpers({
+    directory: 'helpers'
+  }))
   .use(metadata(metadataFiles))
   .use(request(remoteData, gotOptions))
   .use(markdown(markdownOptions))

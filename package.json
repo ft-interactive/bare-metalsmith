@@ -20,6 +20,7 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.6.0",
     "handlebars": "^4.0.5",
+    "helper-moment": "^0.1.0",
     "metalsmith": "^2.1.0",
     "metalsmith-babel": "^4.0.0",
     "metalsmith-browser-sync": "^1.1.1",
@@ -27,6 +28,7 @@
     "metalsmith-layouts": "^1.6.4",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-metadata": "0.0.4",
+    "metalsmith-register-helpers": "^0.2.0",
     "metalsmith-request": "^1.0.0",
     "metalsmith-sass": "^1.3.0"
   }
