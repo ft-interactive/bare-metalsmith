@@ -1,13 +1,9 @@
 <div class="o-grid-row">
 
-  <div class="feed-item">
-
   <a class ="card-link" href="{{story.url}}">
     <div class="feed-item">
-      {{moment timestamp format="MMMM Do, YYYY"}}
-
       <small>
-        {{collection}}{{#if profitwarning.date}} {{profitwarning.date}}{{/if}}
+        {{collection}}{{#if profitwarning.date}} {{moment profitwarning.date format="MMMM D, YYYY"}}{{/if}}
       </small>
 
       <h2>{{company}}</h2>
