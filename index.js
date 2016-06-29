@@ -4,6 +4,7 @@ const Metalsmith = require('metalsmith');
 const helpers = require('metalsmith-register-helpers');
 const metadata = require('metalsmith-metadata');
 const request = require('metalsmith-request');
+const date = require('metalsmith-build-date');
 const markdown = require('metalsmith-markdown');
 const layouts = require('metalsmith-layouts');
 const sass = require('metalsmith-sass');
@@ -41,7 +42,6 @@ const browsersyncOptions = {
   server: "dist",
   files: ["src/**/*.md", "layouts/**/*.hbs"]
 };
-
 const ignoreOptions = ['*.yaml', '*.json']
 
 Metalsmith(__dirname)
@@ -52,6 +52,9 @@ Metalsmith(__dirname)
   }))
   .use(metadata(metadataFiles))
   .use(request(remoteData, gotOptions))
+  .use(date({
+    key: 'lastUpdated'
+  }))
   .use(markdown(markdownOptions))
   .use(layouts(layoutsOptions))
   .use(sass(sassOptions))
