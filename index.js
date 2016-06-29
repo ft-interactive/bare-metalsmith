@@ -40,6 +40,7 @@ const browsersyncOptions = {
   server: "dist",
   files: ["src/**/*.md", "layouts/**/*.hbs"]
 };
+
 const ignoreOptions = ['*.yaml', '*.json']
 
 Metalsmith(__dirname)

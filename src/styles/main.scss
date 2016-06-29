@@ -124,11 +124,21 @@ header > p {
   margin: 12px 0;
 }
 
-.article__timestamp,
-.feed-item > small {
-  color: #8b572a;
+.article__timestamp {
   font-size: 13px;
   line-height: 1.2em;
+}
+.article__timestamp {
+  color: #8b572a;
+}
+
+.feed-item > small {
+  font-size: 14px;
+  line-height: 1.2em;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #9e2f50;
+  text-transform: uppercase;
 }
 
 .o-share {
