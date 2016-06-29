@@ -192,17 +192,46 @@ header > p {
   border-radius: 4px;
   margin-bottom: 1em;
   padding: 20px;
+  overflow: hidden;
   > h2 {
     margin-top: 0.2em;
     margin-bottom: 0.4em;
     font-size: 22px;
     line-height: 23px;
+    color: #333333;
   }
   > p {
     color: #505050;
     font: 16px/1.4 Georgia,serif;
     margin-bottom: 0;
   }
+}
+
+.story-link {
+  float: right;
+  margin-top: 10px;
+}
+
+.story-link:after {
+    background-image: url("https://next-geebee.ft.com/image/v1/images/raw/fticon:arrow-right?source=o-icons&tint=%2327757b,%2327757b&format=svg");
+    background-image: url("https://next-geebee.ft.com/image/v1/images/raw/fticon:arrow-right?source=o-icons&tint=%2327757b,%2327757b&format=png&width=10")\9;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+    background-color: rgba(0, 0, 0, 0);
+    vertical-align: middle;
+    content: '';
+    margin-right: -15px;
+    padding-right: 8px;
+    margin-bottom: 2px;
+}
+
+.card-link:hover .story-link,
+.card-link:hover h2 {
+  text-decoration: underline;
 }
 
 .aggregate {
