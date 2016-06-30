@@ -28,7 +28,7 @@
             </div>
 
             <!-- Parse Bertha data as feed object, iterating over the array -->
-            {{#each feed}}
+            {{#each (sortBy feed 'timestamp')}}
               {{> feed-item}}
             {{/each}}
           </div>
