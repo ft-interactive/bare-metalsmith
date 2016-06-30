@@ -9,10 +9,13 @@ const markdown = require('metalsmith-markdown');
 const layouts = require('metalsmith-layouts');
 const sass = require('metalsmith-sass');
 const babel = require('metalsmith-babel');
-const browsersync = require('metalsmith-browser-sync');
 const ignore = require('metalsmith-ignore');
+const browsersync = require('metalsmith-browser-sync');
 
 // Plugin options
+const helpersOptions = {
+  directory: 'helpers'
+};
 const metadataFiles = {};
 const remoteData = {
   feed: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/data',
@@ -21,9 +24,12 @@ const remoteData = {
 const gotOptions = {
   json: true
 }
+const dateOptions = {
+  key: 'lastUpdated'
+};
 const markdownOptions = {
-  smartypants: true,
   gfm: true,
+  smartypants: true,
   tables: true
 };
 const layoutsOptions = {
@@ -38,33 +44,29 @@ const sassOptions = {
 const babelOptions = {
   presets: ['es2015']
 };
+const ignoreOptions = ['*.yaml', '*.json']
 const browsersyncOptions = {
   server: "dist",
   files: ["src/**/*.md", "layouts/**/*.hbs"]
 };
-const ignoreOptions = ['*.yaml', '*.json']
 
 Metalsmith(__dirname)
   .destination('dist')
   .clean(false)
-  .use(helpers({
-    directory: 'helpers'
-  }))
+  .use(helpers(helpersOptions))
   .use(metadata(metadataFiles))
   .use(request(remoteData, gotOptions))
-  .use(date({
-    key: 'lastUpdated'
-  }))
+  .use(date(dateOptions))
   .use(markdown(markdownOptions))
   .use(layouts(layoutsOptions))
   .use(sass(sassOptions))
   .use(babel(babelOptions))
-  .use(browsersync(browsersyncOptions))
   .use(ignore(ignoreOptions))
+  .use(browsersync(browsersyncOptions))
   .build((err, files) => {
     if (err) {
       throw err;
     }
 
-    console.log('Completed.');
+    console.log('Build complete.');
   });
