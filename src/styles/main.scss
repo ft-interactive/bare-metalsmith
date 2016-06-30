@@ -266,7 +266,12 @@ header > p {
       font-family: $font-sans;
       font-weight: 200;
       font-size: 24px;
-      color: #cc0000;
+      &.negative {
+        color: #cc0000;
+      }
+      &.positive {
+        color: #009900;
+      }
     }
   }
 }
