@@ -127,9 +127,11 @@ header > p {
 .article__timestamp {
   font-size: 13px;
   line-height: 1.2em;
-}
-.article__timestamp {
   color: #8b572a;
+}
+
+.feed-item > .article__timestamp {
+  display: block;
 }
 
 .feed-item > small {
