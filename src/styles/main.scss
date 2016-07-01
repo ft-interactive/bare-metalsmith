@@ -185,6 +185,14 @@ header > p {
   line-height: 22px;
 }
 
+.o-typography-lead--small {
+  font-style: normal;
+  color: #777777;
+  text-align: left;
+  max-width: 625px;
+  margin: 6px auto;
+}
+
 .feed-item,
 .aggregate {
   box-shadow: 0 1px 1px 0 #cec6b9;
