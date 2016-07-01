@@ -183,14 +183,8 @@ header > p {
   text-align: left;
   max-width: 625px;
   line-height: 22px;
-}
-
-.o-typography-lead--small {
-  font-style: normal;
-  color: #777777;
-  text-align: left;
-  max-width: 625px;
-  margin: 6px auto;
+  margin: 0 auto;
+  margin-bottom: 0.7em;
 }
 
 .feed-item,
@@ -308,8 +302,6 @@ header > p {
   .o-typography-lead {
     font-size: 22px;
     line-height: 26px;
-    margin: 0 auto;
-
   }
   .aggregate {
     h2 {
