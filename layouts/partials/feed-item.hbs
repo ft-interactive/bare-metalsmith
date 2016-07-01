@@ -1,6 +1,7 @@
 <div class="o-grid-row">
-
+  {{#if story.url}}
   <a class ="card-link" href="{{story.url}}">
+  {{/if}}
     <div class="feed-item">
       <small>
         {{collection}}{{#if profitwarning.date}} {{moment profitwarning.date format="MMMM D, YYYY"}}{{/if}}
@@ -11,7 +12,12 @@
       <p>
         {{{copy}}}
       </p>
+
+      {{#if story.url}}
       <span class="story-link">Read full article</span>
+      {{/if}}
     </div>
+  {{#if story.url}}
   </a>
+  {{/if}}
 </div>
