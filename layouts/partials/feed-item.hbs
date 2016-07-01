@@ -3,6 +3,10 @@
   <a class ="card-link" href="{{story.url}}">
   {{/if}}
     <div class="feed-item">
+      <time class="article__timestamp">
+        {{moment timestamp format="MMMM D, YYYY"}}
+      </time>
+
       <small>
         {{collection}}{{#if profitwarning.date}} {{moment profitwarning.date format="MMMM D, YYYY"}}{{/if}}
       </small>
