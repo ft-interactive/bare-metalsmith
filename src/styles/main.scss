@@ -251,10 +251,12 @@ header > p {
   .agg-item{
     text-align: left;
     padding-left: 0;
-    &:first-child {
+    border-bottom: 1px solid #e9decf;
+    padding: 0 10px 10px;
+    &:last-child {
       border-right: 0;
-      border-bottom: 1px solid #e9decf;
-      padding-bottom: 10px;
+      border-bottom: 0;
+      padding-bottom: 0;
     }
     > h2,
     p {
@@ -265,6 +267,14 @@ header > p {
       margin-top: 0.4em;
       font-weight: normal;
       font-size: 18px;
+    }
+    .agg-description {
+      font-size: 14px;
+      line-height: 18px;
+      text-align: left;
+      font-weight: 400;
+      padding-top: 10px;
+      color: #505050;
     }
     > p {
       font-family: $font-sans;
@@ -313,9 +323,10 @@ header > p {
     }
     .agg-item{
       text-align: center;
-      &:first-child {
-        border-right: 1px solid #cec6b9;
-        border-bottom: 0;
+      border-right: 1px solid #cec6b9;
+      border-bottom: 0;
+      &:last-child {
+        border-right: 0;
         padding-bottom: 0;
       }
       > h2,
