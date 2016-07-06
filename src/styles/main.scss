@@ -252,7 +252,7 @@ header > p {
     text-align: left;
     padding-left: 0;
     border-bottom: 1px solid #e9decf;
-    padding: 0 10px;
+    padding: 0 10px 10px;
     &:last-child {
       border-right: 0;
       border-bottom: 0;
@@ -295,6 +295,9 @@ header > p {
       margin-top: 28px;
       margin-bottom: 2em;
     }
+  }
+  .aggregate .agg-item{
+    padding: 0 10px 0;
   }
   header > h1,
   header > p {
