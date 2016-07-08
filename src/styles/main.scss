@@ -238,6 +238,11 @@ header > p {
   text-decoration: underline;
 }
 
+a.card-link {
+   border-bottom: 0;
+   width: 100%;
+}
+
 .aggregate {
   text-align: center;
   overflow: hidden;
@@ -289,6 +294,7 @@ header > p {
     }
   }
 }
+
 @include oGridRespondTo (M) {
   .article {
     &-head {
