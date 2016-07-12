@@ -189,6 +189,11 @@ header > p {
   margin-bottom: 0.7em;
 }
 
+.o-typography-body-wrapper ul,
+.o-typography-body-wrapper li {
+  all: unset;
+}
+
 .feed-item,
 .aggregate {
   box-shadow: 0 1px 1px 0 #cec6b9;

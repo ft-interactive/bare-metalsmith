@@ -27,10 +27,22 @@
               </div>
             </div>
 
-            <!-- Parse Bertha data as feed object, iterating over the array -->
-            {{#each (sortBy feed 'timestamp')}}
-              {{> feed-item}}
-            {{/each}}
+            <div class="o-grid-row">
+              <ul>
+                <!-- Parse Bertha data as feed object, iterating over the array to form a list -->
+                {{#each (sortBy feed 'timestamp')}}
+                <li>
+                  {{#if story.url}}
+                  <a class ="card-link" href="{{story.url}}">
+                  {{/if}}
+                    {{> feed-item}}
+                  {{#if story.url}}
+                  </a>
+                  {{/if}}
+                </li>
+                {{/each}}
+              </ul>
+            </div>
           </div>
          </div>
       </article>
