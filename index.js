@@ -46,8 +46,8 @@ const babelOptions = {
 };
 const ignoreOptions = ['*.yaml', '*.json']
 const browsersyncOptions = {
-  server: "dist",
-  files: ["src/**/*.md", "layouts/**/*.hbs"]
+  server: 'dist',
+  files: ['src/**/*.md', 'src/**/*.scss', 'src/**/*.js', 'layouts/**/*.hbs']
 };
 
 Metalsmith(__dirname)
