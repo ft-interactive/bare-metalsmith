@@ -38,7 +38,7 @@ const babelOptions = {
 };
 const browsersyncOptions = {
   server: "dist",
-  files: ["src/**/*.md", "layouts/**/*.hbs"]
+  files: ['src/**/*.md', 'src/**/*.scss', 'src/**/*.js', 'layouts/**/*.hbs']
 };
 const ignoreOptions = ['*.yaml', '*.json']
 
