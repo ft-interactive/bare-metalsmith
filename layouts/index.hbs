@@ -14,41 +14,42 @@
               {{> article-header}}
             </header>
           </div>
+        </div>
 
-          <div class="article-body o-typography-body-wrapper">
-            {{{contents}}}
-            <div class="aggregate o-grid-row">
-              <div data-o-grid-colspan="12"><h2>Change in total value since June 24</h2>
-                <div class="o-grid-row">
-                  {{#each agg}}
-                    {{> agg-item}}
-                  {{/each}}
-                </div>
+        <div class="article-body o-typography-body-wrapper">
+          {{{contents}}}
+          <div class="aggregate o-grid-row">
+            <div data-o-grid-colspan="12"><h2>Change in total value since June 24</h2>
+              <div class="o-grid-row">
+                {{#each agg}}
+                  {{> agg-item}}
+                {{/each}}
               </div>
             </div>
-
-            <div class="o-grid-row">
-              <ul>
-                <!-- Parse Bertha data as feed object, iterating over the array to form a list -->
-                {{#each (sortBy feed 'timestamp')}}
-                <li>
-                  {{#if story.url}}
-                  <a class ="card-link" href="{{story.url}}">
-                  {{/if}}
-                    {{> feed-item}}
-                  {{#if story.url}}
-                  </a>
-                  {{/if}}
-                </li>
-                {{/each}}
-              </ul>
-            </div>
           </div>
-         </div>
+
+          <div class="o-grid-row">
+            <ul>
+              <!-- Parse Bertha data as feed object, iterating over the array to form a list -->
+              {{#each (sortBy feed 'timestamp')}}
+              <li>
+                {{#if story.url}}
+                <a class ="card-link" href="{{story.url}}">
+                {{/if}}
+                  {{> feed-item}}
+                {{#if story.url}}
+                </a>
+                {{/if}}
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
       </article>
     </main>
 
     {{> footer}}
+    <script src="scripts/list.min.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>
