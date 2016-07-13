@@ -4,7 +4,11 @@
   </time>
 
   <small>
-    {{collection1}}{{#if profitwarning.date}} {{moment profitwarning.date format="MMMM D, YYYY"}}{{/if}}{{#if collection2}}, {{collection2}}{{/if}}
+    <span class="collection1">{{collection1}}</span>{{#if collection2}},{{/if}}
+
+    {{#if profitwarning.date}}{{moment profitwarning.date format="MMMM D, YYYY"}}{{/if}}
+
+    {{#if collection2}}<span class="collection2">{{collection2}}</span>{{/if}}
   </small>
 
   <h2>{{company}}</h2>
@@ -13,7 +17,5 @@
     {{{copy}}}
   </p>
 
-  {{#if story.url}}
-  <span class="story-link">Read full article</span>
-  {{/if}}
+  {{#if story.url}}<span class="story-link">Read full article</span>{{/if}}
 </div>
