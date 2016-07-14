@@ -98,7 +98,7 @@ function initFilters() {
   };
 
   mergersFilter.onclick = () => {
-    filterByCollection('Mergers & Acquisitions');
+    filterByCollection('Mergers &amp; Acquisitions');
     clearClicked();
     mergersFilter.classList.add('clicked');
   };
