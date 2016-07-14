@@ -29,27 +29,27 @@
           </div>
 
           <div class="o-grid-row filters">
-            <div data-o-grid-colspan="12 center">
+            <div data-o-grid-colspan="12 center" style="padding-left: 0">
               <h2 class="o-typography-subhead">Announcements by type</h3>
               <div class="filters--major">
-                <button class="o-buttons o-buttons--big" id="financial">Financial Gain ({{collections.[2].count}})</button><!--
-              --><button class="o-buttons o-buttons--big" id="profit">Profit Warning ({{collections.[10].count}})</button><!--
-              --><button class="o-buttons o-buttons--big" id="jobs">Jobs ({{collections.[6].count}})</button>
+                <button class="o-buttons o-buttons--big collection-filter" id="financial">Financial Gain ({{collections.[2].count}})</button>
+                <button class="o-buttons o-buttons--big collection-filter" id="profit">Profit Warning ({{collections.[10].count}})</button>
+                <button class="o-buttons o-buttons--big collection-filter" id="jobs">Jobs ({{collections.[6].count}})</button>
               </div>
-            </div>
 
-            <div class="filters--minor">
-              <div class="filters--minor__holder">
-                <button id="asset">Asset sales</button>
-                <button id="credit">Credit downgrade</button>
-                <button id="fundraising">Fundraising</button>
-                <button id="relocation">HQ relocation</button>
-                <button id="investment">Investment</button>
-                <button id="market">Market access warning</button>
-                <button id="mergers">Mergers &amp; acquisitions</button>
-                <button id="outlook">Outlook warning</button>
+              <div class="filters--minor">
+                <div class="filters--minor__holder">
+                  <button id="asset" class="collection-filter">Asset sales</button>
+                  <button id="credit" class="collection-filter">Credit downgrade</button>
+                  <button id="fundraising" class="collection-filter">Fundraising</button>
+                  <button id="relocation" class="collection-filter">HQ relocation</button>
+                  <button id="investment" class="collection-filter">Investment</button>
+                  <button id="market" class="collection-filter">Market access warning</button>
+                  <button id="mergers" class="collection-filter">Mergers &amp; acquisitions</button>
+                  <button id="outlook" class="collection-filter">Outlook warning</button>
+                </div>
+                <button class="o-buttons o-buttons--standout o-buttons--big__reset" id="reset">Reset All Filters</button>
               </div>
-              <button class="o-buttons o-buttons--standout o-buttons--big__reset" id="reset">Reset All Filters</button>
             </div>
           </div>
 

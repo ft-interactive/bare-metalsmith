@@ -17,6 +17,7 @@ function filterByCollection(collectionName) {
 }
 
 function initFilters() {
+  const allFilters = document.getElementsByClassName('collection-filter');
   const resetFilter = document.getElementById('reset');
   const financialFilter = document.getElementById('financial');
   const profitFilter = document.getElementById('profit');
@@ -30,53 +31,81 @@ function initFilters() {
   const mergersFilter = document.getElementById('mergers');
   const outlookFilter = document.getElementById('outlook');
 
+  function clearClicked() {
+    [].forEach.call(allFilters, function(filter) {
+        filter.classList.remove('clicked');
+    });
+  }
+
   resetFilter.onclick = () => {
     feed.filter();
-
+    clearClicked();
     console.log('Filter reset');
   };
 
   financialFilter.onclick = () => {
     filterByCollection('Financial Gain');
+    clearClicked();
+    financialFilter.classList.add('clicked');
   };
 
   profitFilter.onclick = () => {
     filterByCollection('Profit Warning');
+    clearClicked();
+    profitFilter.classList.add('clicked');
   };
 
   jobsFilter.onclick = () => {
     filterByCollection('Jobs');
+    clearClicked();
+    jobsFilter.classList.add('clicked');
   };
 
   assetFilter.onclick = () => {
     filterByCollection('Asset Sales');
+    clearClicked();
+    assetFilter.classList.add('clicked');
   };
 
   creditFilter.onclick = () => {
     filterByCollection('Credit Downgrade');
+    clearClicked();
+    creditFilter.classList.add('clicked');
   };
 
   fundraisingFilter.onclick = () => {
     filterByCollection('Fundraising');
+    clearClicked();
+    fundraisingFilter.classList.add('clicked');
   };
 
   relocationFilter.onclick = () => {
     filterByCollection('HQ Relocation');
+    clearClicked();
+    relocationFilter.classList.add('clicked');
   };
 
   investmentFilter.onclick = () => {
     filterByCollection('Investment');
+    clearClicked();
+    investmentFilter.classList.add('clicked');
   };
 
   marketFilter.onclick = () => {
     filterByCollection('Market Access Warning');
+    clearClicked();
+    marketFilter.classList.add('clicked');
   };
 
   mergersFilter.onclick = () => {
     filterByCollection('Mergers & Acquisitions');
+    clearClicked();
+    mergersFilter.classList.add('clicked');
   };
 
   outlookFilter.onclick = () => {
     filterByCollection('Outlook Warning');
+    clearClicked();
+    outlookFilter.classList.add('clicked');
   };
 }

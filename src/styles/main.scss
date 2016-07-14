@@ -232,6 +232,10 @@ header > p {
     font-size: 20px;
     color: #333333;
   }
+  button.clicked {
+    background-color: rgba(39,117,123,.08);
+    border-color: rgba(39,117,123,.3);
+  }
 }
 
 .filters--major {
