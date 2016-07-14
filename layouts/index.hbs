@@ -1,5 +1,5 @@
 {{> head}}
-  <body>
+  <body onload="initFilters();">
     {{> tracking-snippet}}
 
     {{> header}}
@@ -15,28 +15,66 @@
             </header>
           </div>
 
-          <div class="article-body o-typography-body-wrapper">
-            {{{contents}}}
-            <div class="aggregate o-grid-row">
-              <div data-o-grid-colspan="12"><h2>Change in total value since June 24</h2>
-                <div class="o-grid-row">
-                  {{#each agg}}
-                    {{> agg-item}}
-                  {{/each}}
-                </div>
+
+        <div class="article-body o-typography-body-wrapper">
+          {{{contents}}}
+          <div class="aggregate o-grid-row">
+            <div data-o-grid-colspan="12"><h2>Change in total value since June 24</h2>
+              <div class="o-grid-row">
+                {{#each agg}}
+                {{> agg-item}}
+                {{/each}}
               </div>
             </div>
-
-            <!-- Parse Bertha data as feed object, iterating over the array -->
-            {{#each (sortBy feed 'timestamp')}}
-              {{> feed-item}}
-            {{/each}}
           </div>
-         </div>
+
+          <div class="o-grid-row filters">
+            <div data-o-grid-colspan="12 center" style="padding-left: 0">
+              <h2 class="o-typography-subhead">Announcements by type</h3>
+              <div class="filters--major">
+                <button class="o-buttons o-buttons--big collection-filter" id="financial">Financial Gain ({{collections.[2].count}})</button>
+                <button class="o-buttons o-buttons--big collection-filter" id="profit">Profit Warning ({{collections.[10].count}})</button>
+                <button class="o-buttons o-buttons--big collection-filter" id="jobs">Jobs ({{collections.[6].count}})</button>
+              </div>
+
+              <div class="filters--minor">
+                <div class="filters--minor__holder">
+                  <button id="asset" class="collection-filter">Asset sales</button>
+                  <button id="credit" class="collection-filter">Credit downgrade</button>
+                  <button id="fundraising" class="collection-filter">Fundraising</button>
+                  <button id="relocation" class="collection-filter">HQ relocation</button>
+                  <button id="investment" class="collection-filter">Investment</button>
+                  <button id="market" class="collection-filter">Market access warning</button>
+                  <button id="mergers" class="collection-filter">Mergers &amp; acquisitions</button>
+                  <button id="outlook" class="collection-filter">Outlook warning</button>
+                </div>
+                <button class="o-buttons o-buttons--standout o-buttons--big__reset" id="reset">Reset All Filters</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="o-grid-row" id="feed">
+            <ul class="list">
+              <!-- Parse Bertha data as feed object, iterating over the array to form a list -->
+              {{#each (sortBy feed 'timestamp')}}
+              <li>
+                {{#if story.url}}
+                <a class ="card-link" href="{{story.url}}">
+                {{/if}}
+                  {{> feed-item}}
+                {{#if story.url}}
+                </a>
+                {{/if}}
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
       </article>
     </main>
 
     {{> footer}}
+    <script src="scripts/list.min.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>

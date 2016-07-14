@@ -19,7 +19,8 @@ const helpersOptions = {
 const metadataFiles = {};
 const remoteData = {
   feed: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/data',
-  agg: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/aggregates'
+  agg: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/aggregates',
+  collections: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/collections'
 };
 const gotOptions = {
   json: true
