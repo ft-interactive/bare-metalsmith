@@ -232,16 +232,20 @@ header > p {
     font-size: 20px;
     color: #333333;
   }
-  button.clicked {
-    background-color: rgba(39,117,123,.08);
-    border-color: rgba(39,117,123,.3);
-  }
 }
 
 .filters--major {
   margin-bottom: 10px;
   > button {
     margin: 0 4px 8px;
+     &.clicked {
+      color: #ffffff;
+      -webkit-box-shadow: inset 0 0 0 1px rgba(39,117,123,.5);
+      box-shadow: inset 0 0 0 1px rgba(39,117,123,.8);
+      background-color: rgba(39,117,123,1) !important;
+      border-color: rgba(39,117,123,.3);
+      pointer-events: none;
+    }
   }
 }
 
@@ -263,10 +267,11 @@ header > p {
       transition: border-color, 0s;
       border-color: rgba(39,117,123,.4);
     }
-    &:focus:not(:active):not(:hover) {
+    &.clicked {
+      color: #ffffff;
       -webkit-box-shadow: inset 0 0 0 1px rgba(39,117,123,.5);
       box-shadow: inset 0 0 0 1px rgba(39,117,123,.8);
-      background-color: rgba(39, 117, 123, 0.2);
+      background-color: rgba(39, 117, 123, 1);
     }
   }
 }
