@@ -3,40 +3,17 @@ const listOptions = {
   valueNames: ['collection1', 'collection2']
 };
 const feed = new List('feed', listOptions);
-let activeFilters = [];
 
 function filterByCollection(collectionName) {
-  if (activeFilters.length == 1) {
-    activeFilters.push(collectionName);
+  feed.filter(function(item) {
+    if (item.values().collection1 == collectionName || item.values().collection2 == collectionName) {
+      return true;
+    } else {
+      return false;
+    }
+  });
 
-    feed.filter(function(item) {
-      if (activeFilters.indexOf(item.values().collection1) > -1 && activeFilters.indexOf(item.values().collection2) > -1) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-
-    console.log(collectionName + ' filter applied');
-  } else if (activeFilters.length == 0) {
-    activeFilters.push(collectionName);
-
-    feed.filter(function(item) {
-      if (item.values().collection1 == collectionName || item.values().collection2 == collectionName) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-
-    console.log(collectionName + ' filter applied');
-  } else {
-    feed.filter(function() {
-      return null;
-    });
-
-    console.log('That\'s all, folks');
-  }
+  console.log(collectionName + ' filter applied');
 }
 
 function initFilters() {
@@ -54,11 +31,9 @@ function initFilters() {
   const outlookFilter = document.getElementById('outlook');
 
   resetFilter.onclick = () => {
-    activeFilters = [];
-
     feed.filter();
 
-    console.log('Filters reset');
+    console.log('Filter reset');
   };
 
   financialFilter.onclick = () => {
