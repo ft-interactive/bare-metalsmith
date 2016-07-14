@@ -14,7 +14,7 @@
               {{> article-header}}
             </header>
           </div>
-        </div>
+
 
         <div class="article-body o-typography-body-wrapper">
           {{{contents}}}
@@ -28,24 +28,28 @@
             </div>
           </div>
 
-          <div class="o-grid-row">
-            <button type="button" id="reset">Reset All Filters</button>
-            <button type="button" id="financial">Financial Gain ({{collections.[2].count}})</button>
-            <button type="button" id="profit">Profit Warning ({{collections.[10].count}})</button>
-            <button type="button" id="jobs">Jobs ({{collections.[6].count}})</button>
-          </div>
+          <div class="o-grid-row filters">
+            <div data-o-grid-colspan="12 center">
+              <div class="o-buttons__group">
+                <button class="o-buttons o-buttons--big" id="financial">Financial Gain ({{collections.[2].count}})</button><!--
+              --><button class="o-buttons o-buttons--big" id="profit">Profit Warning ({{collections.[10].count}})</button><!--
+              --><button class="o-buttons o-buttons--big" id="jobs">Jobs ({{collections.[6].count}})</button>
+              </div>
+            </div>
 
-          <div class="o-grid-row">
-            <p>
-              <span id="asset">Asset Sales</span>
-              <span id="credit">Credit Downgrade</span>
-              <span id="fundraising">Fundraising</span>
-              <span id="relocation">HQ Relocation</span>
-              <span id="investment">Investment</span>
-              <span id="market">Market Access Warning</span>
-              <span id="mergers">Mergers &amp; Acquisitions</span>
-              <span id="outlook">Outlook Warning</span>
-            </p>
+            <div class="filters--minor">
+              <div class="filters--minor__holder">
+                <button id="asset">Asset sales</button>
+                <button id="credit">Credit downgrade</button>
+                <button id="fundraising">Fundraising</button>
+                <button id="relocation">HQ relocation</button>
+                <button id="investment">Investment</button>
+                <button id="market">Market access warning</button>
+                <button id="mergers">Mergers &amp; acquisitions</button>
+                <button id="outlook">Outlook warning</button>
+              </div>
+              <button class="o-buttons o-buttons--standout o-buttons--big__reset" id="reset">Reset All Filters</button>
+            </div>
           </div>
 
           <div class="o-grid-row" id="feed">
@@ -69,6 +73,7 @@
     </main>
 
     {{> footer}}
+    <script src="https://build.origami.ft.com/v2/bundles/js?modules=o-buttons@^4.0.1"></script>
     <script src="scripts/list.min.js"></script>
     <script src="scripts/main.js"></script>
   </body>
