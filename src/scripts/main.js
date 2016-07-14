@@ -6,7 +6,7 @@ const feed = new List('feed', listOptions);
 let activeFilters = [];
 
 function filterByCollection(collectionName) {
-  if (feed.filtered) {
+  if (activeFilters.length == 1) {
     activeFilters.push(collectionName);
 
     feed.filter(function(item) {
@@ -18,7 +18,7 @@ function filterByCollection(collectionName) {
     });
 
     console.log(collectionName + ' filter applied');
-  } else {
+  } else if (activeFilters.length == 0) {
     activeFilters.push(collectionName);
 
     feed.filter(function(item) {
@@ -30,6 +30,12 @@ function filterByCollection(collectionName) {
     });
 
     console.log(collectionName + ' filter applied');
+  } else {
+    feed.filter(function() {
+      return null;
+    });
+
+    console.log('That\'s all, folks');
   }
 }
 
@@ -49,6 +55,7 @@ function initFilters() {
 
   resetFilter.onclick = () => {
     activeFilters = [];
+
     feed.filter();
 
     console.log('Filters reset');
