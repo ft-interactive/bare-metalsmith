@@ -43,7 +43,13 @@ const sassOptions = {
   includePaths: ['bower_components']
 };
 const babelOptions = {
-  presets: ['es2015']
+  presets: ['es2015'],
+  ignore: [
+    'src/scripts/d3.min.js',
+    'src/scripts/drawFrame.js',
+    'src/scripts/line.js',
+    'src/scripts/styles.js'
+  ]
 };
 const ignoreOptions = ['*.yaml', '*.json']
 const browsersyncOptions = {
