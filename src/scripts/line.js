@@ -13,7 +13,7 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
 
     var yOffset=d3.select("#"+media+"Subtitle").style("font-size");
     yOffset=Number(yOffset.replace(/[^\d.-]/g, ''));
-    
+
     //Get the width,height and the marginins unique to this chart
     var w=plot.node().getBBox().width;
     var h=plot.node().getBBox().height;
@@ -25,7 +25,7 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
     var plotWidth = w-(margin.left+margin.right);
     var plotHeight = h-(margin.top+margin.bottom);
 
-    //calculate range of time series 
+    //calculate range of time series
     var xDomain = d3.extent(data, function(d) {return d.date;});
     var yDomain;
 
@@ -36,7 +36,7 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
                 yMin=Math.min(yMin,d[e]);
                 yMax=Math.max(yMax,d[e]);
             }
-        });			
+        });
     });
     yDomain=[yMin,yMax];
 
@@ -54,8 +54,8 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
             if (myRow.val){
                 plotArrays[e].push(myRow);
             }   else    {
-                //console.log('skipped a value:'+i);   
-            } 
+                //console.log('skipped a value:'+i);
+            }
         });
     });
 
@@ -82,7 +82,7 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
     if (logScale){
         yAxis.tickFormat(function (d) {
             return yScale.tickFormat(1,d3.format(",d"))(d)
-        })   
+        })
     }
     var yLabel=plot.append("g")
     .attr("class",media+"yAxis")
@@ -119,6 +119,8 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
 
     var xAxis = d3.svg.axis()
         .scale(xScale)
+        .ticks(Math.max(w / 60, 2))
+        .tickFormat(d3.time.format('%b %e', function (d) { return d.getDate() !== 1; }))
         .tickValues(ticks)
         .tickSize(yOffset/2)
         .orient("bottom");
@@ -135,11 +137,11 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
 
     //create a line function that can convert data[] into x and y points
     var lineData= d3.svg.line()
-        .x(function(d,i) { 
-            return xScale(d.date); 
+        .x(function(d,i) {
+            return xScale(d.date);
         })
-        .y(function(d) { 
-            return yScale(d.val); 
+        .y(function(d) {
+            return yScale(d.val);
         })
         .interpolate(lineSmoothing)
 
@@ -148,12 +150,12 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
             .enter()
             .append("g")
             .attr("id",function(d,i){
-                return seriesNames[i];  
+                return seriesNames[i];
             })
         lines.append("path")
             .attr("class",media+"lines")
             .attr("stroke",function(d,i){
-                return colours[i];  
+                return colours[i];
             })
             .attr('d', function(d){ return lineData(d); })
             .attr("transform",function(){
@@ -230,7 +232,7 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
 
         var drag = d3.behavior.drag().on("drag", moveLegend);
         d3.select("#"+media+"legend").call(drag);
-            
+
         legend.append("text")
 
             .attr("id",function(d,i){
@@ -244,7 +246,7 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
             })
         legend.append("line")
             .attr("stroke",function(d,i){
-                return colours[i];  
+                return colours[i];
             })
             .attr("x1",0)
             .attr("x2",yOffset)
@@ -256,18 +258,18 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
             if (legAlign=='hori') {
                 var gHeigt=d3.select("#"+media+"l0").node().getBBox().height;
                 if (i>0) {
-                    var gWidth=d3.select("#"+media+"l"+(i-1)).node().getBBox().width+yOffset; 
+                    var gWidth=d3.select("#"+media+"l"+(i-1)).node().getBBox().width+yOffset;
                 }
                 else {gWidth=0};
                 legendyOffset=legendyOffset+gWidth;
-                return "translate("+(legendyOffset)+","+(gHeigt/2)+")";  
+                return "translate("+(legendyOffset)+","+(gHeigt/2)+")";
             }
             else {
                 return "translate(0,"+((i*yOffset))+")"};
     })
 
     }
-    
+
 
     function colculateTicksize(align, offset) {
         if (align=="right") {
@@ -286,9 +288,4 @@ function lineChart(data, stylename, media, yMin, yMax, yAxisHighlight, plotpaddi
         d3.select(this).attr("transform", "translate(" + dX + ", " + dY + ")");
 
     }
-
-
-
-
-
 }

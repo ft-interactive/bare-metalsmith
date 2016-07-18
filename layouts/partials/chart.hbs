@@ -1,3 +1,10 @@
+<style>
+  div#chart {
+    margin-left: -20px;
+    padding-top: 10px;
+  }
+</style>
+
 <div id="chart"></div>
 
 <script src="scripts/d3.min.js"></script>
@@ -8,13 +15,13 @@
   var dataURL = "gdpusd.csv"
 
   //titles, footnotes
-  var title = "Chinese profits are down for the first time since 2008";
-  var subtitle = "Changes in Chinese listed companies' net profit* (%)";//comment out subtitle assignment if not needed
-  var source = "Dazhihui";
+  var title = "Sterling vs dollar since EU referendum";
+  var subtitle = "$ per £";//comment out subtitle assignment if not needed
+  var source = "Source: Bloomberg, 18 Jul 2016";
 
   //graph options
-  var yMin=0.5;
-  var yMax=1.4;
+  var yMin=1.2;
+  var yMax=1.5;
   var yAxisHighlight=-20;
   var lineSmoothing="linear";//choose 'linear' for an unsmoothed line 'monotone' for smooth
   var logScale=false;
@@ -22,19 +29,27 @@
   var markers=false;//show circle markers
   var numTicksy = 8;//rough number of ticks for y axis
   var numTicksx = 10;//rough number of ticks for x axis
-  var interval="years";//days, months or years
+  var interval="days";//days, months or years
   var ticks//=[0.2,0.3];//option to force tick values for online
 
   //Use the frames array to set unique values for each media type of frame
   // Print column sizes-- 1col 53.71mm: 2col 112.25mm: 3col 170.8mm: 4col 229.34mm: 5col 287.88mm: 6col 346.43
-  var frames=[
-    {name:"web",width:600,height:275,units:'px',margins:[{top:0,right:20,bottom:5,left:00}],stylesheet:styleweb,legend:"hori",yLabel:"right"},
-  ]
+  var frames=[{
+    name: "web",
+    width: parseInt(d3.select('#chart').style('width')),
+    height: 275,
+    units: 'px',
+    margins: [{ top: 0, right: 20, bottom: 5, left: 20 }],
+    stylesheet: styleweb,
+    legend: "hori",
+    yLabel: "right"
+  }]
 
   //sets the padding inside the chart area
-  var chartpadding=[
-    {name:"web",margin:[{top:20, right:0,bottom:20,left:10}]},
-  ]
+  var chartpadding=[{
+    name: "web",
+    margin: [{ top: 20, right: 0, bottom: 20, left: 10 }]
+  }]
   //Add blank frames
   drawFrames()
   //Load Data
