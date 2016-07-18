@@ -3,169 +3,187 @@
     margin-left: -20px;
     padding-top: 10px;
   }
+
+  .title {
+    margin-left: 20px;
+    font-size: 21px;
+    font-weight: 400;
+    color: #3b3d3b;
+    text-align: left;
+  }
+
+  .subtitle {
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #6b6e68;
+    text-align: left;
+  }
+
+  .axis {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #c3bcb0;
+  }
+
+  .x.axis {
+    stroke: #9ba497;
+    stroke-dasharray: 1, 2;
+  }
+
+  .y.axis .domain {
+    stroke: none;
+  }
+
+  .tick text {
+    fill: #6b6e68;
+    stroke: none;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .x .tick {
+    stroke-dasharray: 0;
+  }
+
+  .y .tick {
+    stroke: #9ba497;
+    stroke-dasharray: 1, 2;
+  }
+
+  .y .tick text {
+    font-feature-settings: 'tnum' 1;
+    text-anchor: end;
+  }
+
+  .line {
+    fill: none;
+    stroke: #a5526a;
+    stroke-width: 2.5px;
+    stroke-linecap: round;
+  }
+
 </style>
 
 <div id="chart"></div>
 
 <script src="scripts/d3.min.js"></script>
-<script src="scripts/drawFrame.js"></script>
-<script src="scripts/line.js"></script>
 <script>
-  //datafile
-  var dataURL = "gdpusd.csv"
+var margin = {top: 20, right: 50, bottom: 30, left: 50};
+var width = parseInt(d3.select('#chart').style('width')) - margin.left - margin.right;
+var height = 275 - margin.top - margin.bottom;
+var parseDate = d3.time.format('%Y-%m-%d').parse;
+var timeFormat = d3.time.format.multi([
+  ['.%L', function (d) { return d.getMilliseconds(); }],
+  [':%S', function (d) { return d.getSeconds(); }],
+  ['%I:%M', function (d) { return d.getMinutes(); }],
+  ['%I %p', function (d) { return d.getHours(); }],
+  // ['%a %e', function (d) { return d.getDay() && d.getDate() !== 1; }],
+  ['%b %e', function (d) { return d.getDate() !== 1; }],
+  ['%b', function (d) { return d.getMonth(); }],
+  ['%Y', function () { return true; }]
+]);
 
-  //titles, footnotes
-  var title = "Sterling vs dollar since EU referendum";
-  var subtitle = "$ per £";//comment out subtitle assignment if not needed
-  var source = "Source: Bloomberg, 18 Jul 2016";
+var x = d3.time.scale()
+    .range([0, width]);
 
-  //graph options
-  var yMin=1.2;
-  var yMax=1.5;
-  var yAxisHighlight=-20;
-  var lineSmoothing="linear";//choose 'linear' for an unsmoothed line 'monotone' for smooth
-  var logScale=false;
-  var logScaleStart=1000;
-  var markers=false;//show circle markers
-  var numTicksy = 8;//rough number of ticks for y axis
-  var numTicksx = 10;//rough number of ticks for x axis
-  var interval="days";//days, months or years
-  var ticks//=[0.2,0.3];//option to force tick values for online
+var y = d3.scale.linear()
+    .range([height, 0]);
 
-  //Use the frames array to set unique values for each media type of frame
-  // Print column sizes-- 1col 53.71mm: 2col 112.25mm: 3col 170.8mm: 4col 229.34mm: 5col 287.88mm: 6col 346.43
-  var frames=[{
-    name: "web",
-    width: parseInt(d3.select('#chart').style('width')),
-    height: 275,
-    units: 'px',
-    margins: [{ top: 0, right: 20, bottom: 5, left: 20 }],
-    stylesheet: styleweb,
-    legend: "hori",
-    yLabel: "right"
-  }]
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient('bottom')
+    .ticks(Math.max(width / 60, 4))
+    .tickFormat(timeFormat)
+    .outerTickSize(0);
 
-  //sets the padding inside the chart area
-  var chartpadding=[{
-    name: "web",
-    margin: [{ top: 20, right: 0, bottom: 20, left: 10 }]
-  }]
-  //Add blank frames
-  drawFrames()
-  //Load Data
-  d3.csv(dataURL,function(error, data){
-      //date formatter, matching the format of the incoming csv...
-      //var parseDate = d3.time.format("%Y %b").parse;
-      //var parseDate = d3.time.format("%Y").parse;//just full year
-      var parseDate = d3.time.format("%Y-%m-%d").parse;
-      /*
-      some common formatting parsers....
-      d3.time.format("%Y %b") 1986 Jan
-      d3.time.format("%d-%b-%y")  28-Jan-86
-      d3.time.format("%Y-%m-%d")  1986-01-28
-      d3.time.format("%m/%d/%Y")  01/28/1986
-      d3.time.format("%H:%M") 11:39
-      d3.time.format("%H:%M %p")  11:39 AM
-      d3.time.format("%B %d") January 28
-      d3.time.format("%d %b") 28 Jan
-       d3.time.format("%d/%m/%Y %H:%M")28/01/16
-       */
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient('right')
+    .ticks(Math.max(width / 50, 4))
+    .tickSize(-width);
 
-      //parse the data
-      data.forEach(function(d) {
-          d.date=parseDate(d.date);
-      });
-  //YOU SHOULD'NT HAVE TO DO MUCH AFTER THIS
-      //ticks=calculateTicks(data,interval)
+d3.select('#chart').append('div')
+    .attr('class', 'title')
+    .text('Sterling vs dollar since EU referendum');
 
-      for (var i=0;i<frames.length;i++){
-          var stylename=frames[i].stylesheet;
-          var media = frames[i].name;
-          var legend=frames[i].legend;
-          var subYoffset=stylename.subOffset
-          var yLabel=frames[i].yLabel
-          lineChart(data,stylename,media,yMin,yMax,yAxisHighlight,chartpadding,legend, lineSmoothing,logScale,logScaleStart,markers, numTicksy,yLabel,ticks);
-      }
-  })//end data load
+d3.select('#chart').append('div')
+    .attr('class', 'subtitle')
+    .text('$ per £');
 
-  function drawFrames(){
-      for (var i=0;i<frames.length;i++){
-          var stylename=frames[i].stylesheet;
-          var media = frames[i].name;
-          if(frames[i].units=="mm") {
-              framewidth = mmToPx(frames[i].width);
-              frameheight = mmToPx(frames[i].height);
-          }
-          else{
-              framewidth = frames[i].width;
-              frameheight = frames[i].height;
-          }
-          var framemargin = frames[i].margins[0];
-          var titleYoffset=stylename.titleOffset;
-          var subYoffset=stylename.subOffset
-          var frame = new drawFrame(stylename.classes,media,titleYoffset,subYoffset)
-              .width(framewidth)
-              .height(frameheight)
-              .margin(framemargin)
-              .title(title)
-              .source(source)
-          //optional elements
-          if (subtitle){
-              frame.subtitle(subtitle)
-          }
-          d3.select("#chart").call(frame)
-      }
+var svg = d3.select('#chart').append('svg')
+    .attr('width', width + margin.left + margin.right)
+    .attr('height', height + margin.top + margin.bottom)
+  .append('g')
+    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+var line = d3.svg.line()
+    .x(function (d) {
+      return x(d.date);
+    })
+    .y(function (d) {
+      return y(d.value);
+    });
+
+d3.csv('gdpusd.csv', function (error, data) {
+  if (error) throw error;
+
+  data.forEach(function (d) {
+    d.date = parseDate(d.date);
+  });
+
+  data.sort(function (a, b) {
+    return a.date - b.date;
+  });
+
+  x.domain([data[0].date, data[data.length - 1].date]);
+
+  y.domain(d3.extent(data, function (d) {
+    return d.value;
+  }));
+
+  svg.append('g')
+      .attr('class', 'x axis')
+      .attr('transform', 'translate(0,' + height + ')')
+      .call(xAxis);
+
+  svg.append('g')
+      .attr('class', 'y axis')
+      .attr('transform', 'translate(' + width + ',0)')
+      .call(yAxis);
+
+  svg.append('path')
+      .datum(data)
+      .attr('class', 'line')
+      .attr('d', line);
+
+  function resize() {
+    // Find the new window dimensions
+    var width = parseInt(d3.select('#chart').style('width'), 10) - margin.left - margin.right;
+
+    // Update the range of the scale with new width/height
+    x.range([0, width]);
+    y.range([height, 0]);
+
+    // Update the axis with the new scale
+    svg.select('.x.axis')
+        .attr('transform', 'translate(0,' + height + ')')
+        .call(xAxis);
+
+    svg.select('.y.axis')
+        .attr('transform', 'translate(' + width + ',0)')
+        .call(yAxis);
+
+    xAxis.ticks(width / 70);
+
+    yAxis.ticks(width / 50)
+        .tickSize(-width);
+
+    // Force D3 to recalculate and update the line
+    d3.selectAll('.line')
+        .attr('d', line);
   }
 
-  function calculateTicks(data,int) {
-      console.log("intercal ", int)
-      var dateDomain = d3.extent(data, function(d) {return d.date;});
-      console.log("domain ",dateDomain)
-      switch (int) {
-          case 'years':
-          var major=years(dateDomain)
-          //var minor=months(dateDomain)
-          case 'months':
-          var major=months(dateDomain)
-          //var minor=days(dateDomain)
-          case 'days':
-          var major=days(dateDomain)
-          //var minor=hours(dateDomain)
-      }
-      console.log("major ",major)
-      return major
-
-      function years(dateDomain) {
-          var intervals= d3.time.year.range(new Date(dateDomain[0]), new Date(dateDomain[1]));
-          intervals.unshift(dateDomain[0])
-          console.log("years ", intervals)
-          return intervals
-      }
-
-      function months(dateDomain) {
-          var intervals= d3.time.months(new Date(dateDomain[0]), new Date(dateDomain[1]));
-          intervals.unshift(dateDomain[0])
-          console.log("months ", intervals)
-          return intervals
-      }
-
-      function days(dateDomain) {
-          var intervals = d3.time.days(new Date(dateDomain[0]), new Date(dateDomain[1]));
-          intervals.unshift(dateDomain[0])
-          console.log("days ", intervals)
-          return intervals
-      }
-
-      function hours(dateDomain) {
-          var intervals = d3.time.hours(new Date(dateDomain[0]), new Date(dateDomain[1]));
-          intervals.unshift(dateDomain[0])
-          console.log("minutes ", intervals)
-          return intervals
-      }
-  }
-
-  function mmToPx(mm){
-      var px = mm*2.83464480558843;
-      return px;
-  }
+  d3.select(window).on('resize', resize);
+});
 </script>
