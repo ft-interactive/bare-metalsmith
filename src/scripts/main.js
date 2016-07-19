@@ -1,8 +1,9 @@
 const List = window.List;
 const listOptions = {
-  valueNames: ['collection1', 'collection2']
+  valueNames: ['collection1', 'collection2', 'company']
 };
 const feed = new List('feed', listOptions);
+const customSearch = document.getElementById('custom-search');
 
 function filterByCollection(collectionName) {
   feed.filter(function(item) {
@@ -109,3 +110,9 @@ function initFilters() {
     outlookFilter.classList.add('clicked');
   };
 }
+
+customSearch.onkeyup = () => {
+   const searchString = customSearch.value;
+
+   feed.search(searchString, ['company']);
+};

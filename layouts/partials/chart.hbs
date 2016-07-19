@@ -93,14 +93,13 @@ var y = d3.scale.linear()
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient('bottom')
-    .ticks(Math.max(width / 60, 4))
+    .ticks(Math.max(Math.ceil(width / 70), 4))
     .tickFormat(timeFormat)
     .outerTickSize(0);
 
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient('right')
-    .ticks(Math.max(width / 50, 4))
     .tickSize(-width);
 
 d3.select('#chart').append('div')
@@ -174,10 +173,9 @@ d3.csv('gdpusd.csv', function (error, data) {
         .attr('transform', 'translate(' + width + ',0)')
         .call(yAxis);
 
-    xAxis.ticks(width / 70);
+    xAxis.ticks(Math.max(Math.ceil(width / 80), 4));
 
-    yAxis.ticks(width / 50)
-        .tickSize(-width);
+    yAxis.tickSize(-width);
 
     // Force D3 to recalculate and update the line
     d3.selectAll('.line')
