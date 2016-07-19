@@ -4,6 +4,7 @@ const listOptions = {
 };
 const feed = new List('feed', listOptions);
 const customSearch = document.getElementById('custom-search');
+const $ = window.jQuery;
 
 function filterByCollection(collectionName) {
   feed.filter(function(item) {
@@ -111,8 +112,23 @@ function initFilters() {
   };
 }
 
+// Custom search, restricted to 'company' field only
 customSearch.onkeyup = () => {
    const searchString = customSearch.value;
 
    feed.search(searchString, ['company']);
 };
+
+// Autocomplete for search input
+const allCompanies = [];
+let uniqueCompanies = {};
+
+feed.items.forEach(function (item) {
+  allCompanies.push(item.values().company.replace(/&amp;/g, '&'));
+});
+
+uniqueCompanies = new Set(allCompanies);
+
+$('#custom-search').autocomplete({
+  source: Array.from(uniqueCompanies)
+});

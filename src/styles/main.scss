@@ -480,3 +480,12 @@ a.card-link {
   }
  
 }
+
+.ui-widget {
+  font-family: $font-sans
+}
+
+.ui-menu-item.ui-state-focus {
+  background: oColorsGetPaletteColor('teal-1');
+  color: #fff;
+}
