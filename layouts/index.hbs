@@ -60,7 +60,7 @@
             <input id="custom-search" placeholder="Search by company name">
             <ul class="list">
               <!-- Parse Bertha data as feed object, iterating over the array to form a list -->
-              {{#each (sortBy feed 'timestamp')}}
+              {{#each (sortBy feed "timestamp")}}
               <li>
                 {{#if story.url}}
                 <a class ="card-link" href="{{story.url}}">
