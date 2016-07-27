@@ -365,10 +365,14 @@ header > p {
 .o-hoverable-on .o-typography-body-wrapper a:hover {
   color: #27757b;
 }
-.story-link {
+a.story-link {
   float: right;
   margin: 8px 10px 0;
   color: #27757b;
+  border-bottom: 1px solid transparent;
+    &:hover {
+      text-decoration: none;
+  }
 }
 
 .story-link:after {
