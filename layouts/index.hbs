@@ -62,9 +62,7 @@
               <!-- Parse Bertha data as feed object, iterating over the array to form a list -->
               {{#each (sortBy feed "timestamp")}}
               <li>
-                <a class ="card-link" href="{{story.url}}">
-                  {{> feed-item}}
-                </a>
+                {{> feed-item}}
               </li>
               {{/each}}
             </ul>
