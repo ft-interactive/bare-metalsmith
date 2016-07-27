@@ -1,19 +1,34 @@
 <div class="feed-item" id="{{dashcase id}}">
-  <a href="https://twitter.com/intent/tweet?&amp;text=Brexit%20impact%20on%20{{encodeURI company}}%20–%20{{encodeURI collection1}}{{#if collection2}}%2C%20{{encodeURI collection2}}{{/if}}&amp;url={{encodeURI 'https://ig.ft.com/sites/brexit-companies/#'}}{{encodeURI (dashcase id)}}&amp;hashtags=BrexitBusinessImpactTracker&amp;related=%40FT&amp;via=FT">Tweet</a>
+  <div class="feed-item--social">
+    <div data-o-component="o-share"
+      class="o-share o-share--vertical o-share--muted"
+      data-o-share-links="twitter"
+      data-o-share-url="{{encodeURI 'https://ig.ft.com/sites/brexit-companies/#'}}{{encodeURI (dashcase id)}}&amp;hashtags=BrexitBusinessImpactTracker&amp;related=%40FT&amp;via=FT"
+      data-o-share-title="Brexit impact on {{company}} – {{collection1}}{{#if collection2}}%2C {{collection2}}{{/if}}"
+      data-o-share-titleExtra=""
+      data-o-share-summary=""
+      data-o-share-relatedTwitterAccounts="@FT">
+    </div>
+   {{!--  <a href="https://twitter.com/intent/tweet?&amp;text=Brexit%20impact%20on%20{{encodeURI company}}%20–%20{{encodeURI collection1}}{{#if collection2}}%2C%20{{encodeURI collection2}}{{/if}}&amp;url={{encodeURI 'https://ig.ft.com/sites/brexit-companies/#'}}{{encodeURI (dashcase id)}}&amp;hashtags=BrexitBusinessImpactTracker&amp;related=%40FT&amp;via=FT">Tweet</a> --}}
+  </div>
 
-  <time class="article__timestamp">
-    {{moment timestamp format="MMMM D, YYYY"}}
-  </time>
+  <div>
+    <time class="article__timestamp">
+      {{moment timestamp format="MMMM D, YYYY"}}
+    </time>
+  </div>
+  <div>
+    <small>
+      <span class="collection1">{{collection1}}</span>{{#if collection2}},{{/if}}
 
-  <small>
-    <span class="collection1">{{collection1}}</span>{{#if collection2}},{{/if}}
+      {{#if profitwarning.date}}{{moment profitwarning.date format="MMMM D, YYYY"}}{{/if}}
 
-    {{#if profitwarning.date}}{{moment profitwarning.date format="MMMM D, YYYY"}}{{/if}}
-
-    {{#if collection2}}<span class="collection2">{{collection2}}</span>{{/if}}
-  </small>
-
-  <h2 class="company">{{company}}</h2>
+      {{#if collection2}}<span class="collection2">{{collection2}}</span>{{/if}}
+    </small>
+  </div>
+  <div class="company__holder">
+    <h2 class="company">{{company}}</h2>
+  </div>
 
   <p>
     {{{copy}}}
