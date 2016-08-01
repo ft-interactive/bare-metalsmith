@@ -32,6 +32,7 @@ function initFilters() {
   const marketFilter = document.getElementById('market');
   const mergersFilter = document.getElementById('mergers');
   const outlookFilter = document.getElementById('outlook');
+  const profitFallFilter = document.getElementById('profit-fall');
 
   function clearClicked() {
     [].forEach.call(allFilters, function(filter) {
@@ -109,6 +110,12 @@ function initFilters() {
     filterByCollection('Outlook Warning');
     clearClicked();
     outlookFilter.classList.add('clicked');
+  };
+
+  profitFallFilter.onclick = () => {
+    filterByCollection('Profit Fall');
+    clearClicked();
+    profitFallFilter.classList.add('clicked');
   };
 }
 
