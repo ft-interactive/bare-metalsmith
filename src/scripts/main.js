@@ -121,16 +121,18 @@ function initFilters() {
 
 // Custom search, restricted to 'company' field only
 customSearch.onkeyup = () => {
-   const searchString = customSearch.value;
+   const searchString = customSearch.value.replace('&', '&amp;');
 
    feed.search(searchString, ['company']);
+
+   console.log(searchString);
 };
 
 // Autocomplete for search input
 const allCompanies = [];
 let uniqueCompanies = {};
 
-feed.items.forEach(function (item) {
+feed.items.forEach((item) => {
   allCompanies.push(item.values().company.replace(/&amp;/g, '&'));
 });
 
