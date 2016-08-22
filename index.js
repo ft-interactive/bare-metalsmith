@@ -1,4 +1,6 @@
-const Metalsmith = require('metalsmith');
+/* eslint import/no-extraneous-dependencies: ['error', {'devDependencies': true}] */
+
+const metalsmith = require('metalsmith');
 
 // Plugins
 const helpers = require('metalsmith-register-helpers');
@@ -14,33 +16,33 @@ const browsersync = require('metalsmith-browser-sync');
 
 // Plugin options
 const helpersOptions = {
-  directory: 'helpers'
+  directory: 'helpers',
 };
 const metadataFiles = {};
 const remoteData = {
   feed: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/data',
   agg: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/aggregates',
-  collections: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/collections'
+  collections: 'https://bertha.ig.ft.com/view/publish/gss/107tkTkKou_eOjkSdelYU9WPWBtRqavnU8KG4u_Y9I_Y/collections',
 };
 const gotOptions = {
-  json: true
-}
+  json: true,
+};
 const dateOptions = {
-  key: 'lastUpdated'
+  key: 'lastUpdated',
 };
 const markdownOptions = {
   gfm: true,
   smartypants: true,
-  tables: true
+  tables: true,
 };
 const layoutsOptions = {
   engine: 'handlebars',
   partials: 'layouts/partials',
-  rename: true
+  rename: true,
 };
 const sassOptions = {
   outputStyle: 'expanded',
-  includePaths: ['bower_components']
+  includePaths: ['bower_components'],
 };
 const babelOptions = {
   presets: ['es2015'],
@@ -48,16 +50,16 @@ const babelOptions = {
     'src/scripts/d3.min.js',
     'src/scripts/drawFrame.js',
     'src/scripts/line.js',
-    'src/scripts/styles.js'
-  ]
+    'src/scripts/styles.js',
+  ],
 };
-const ignoreOptions = ['*.yaml', '*.json']
+const ignoreOptions = ['*.yaml', '*.json'];
 const browsersyncOptions = {
   server: 'dist',
-  files: ['src/**/*.md', 'src/**/*.scss', 'src/**/*.js', 'layouts/**/*.hbs']
+  files: ['src/**/*.md', 'src/**/*.scss', 'src/**/*.js', 'layouts/**/*.hbs'],
 };
 
-Metalsmith(__dirname)
+metalsmith(__dirname)
   .destination('dist')
   .clean(false)
   .use(helpers(helpersOptions))
@@ -70,7 +72,7 @@ Metalsmith(__dirname)
   .use(babel(babelOptions))
   .use(ignore(ignoreOptions))
   .use(browsersync(browsersyncOptions))
-  .build((err, files) => {
+  .build((err) => {
     if (err) {
       throw err;
     }
