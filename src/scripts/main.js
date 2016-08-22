@@ -33,6 +33,7 @@ function initFilters() {
   const mergersFilter = document.getElementById('mergers');
   const outlookFilter = document.getElementById('outlook');
   const profitFallFilter = document.getElementById('profit-fall');
+  const revenueFallFilter = document.getElementById('revenue-fall');
 
   function clearClicked() {
     [].forEach.call(allFilters, function(filter) {
@@ -116,6 +117,12 @@ function initFilters() {
     filterByCollection('Profit Fall');
     clearClicked();
     profitFallFilter.classList.add('clicked');
+  };
+
+  revenueFallFilter.onclick = () => {
+    filterByCollection('Revenue Fall');
+    clearClicked();
+    revenueFallFilter.classList.add('clicked');
   };
 }
 
