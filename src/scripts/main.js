@@ -72,8 +72,6 @@ customSearch.onkeyup = () => {
   const searchString = customSearch.value.replace('&', '&amp;');
 
   feed.search(searchString, ['company']);
-
-  console.log(searchString);
 };
 
 // Autocomplete for search input
