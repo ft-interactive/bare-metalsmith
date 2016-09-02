@@ -36,3 +36,4 @@ node_modules
 dist
 
 bower_components
+*.DS_Store
