@@ -248,9 +248,14 @@ header > p {
   margin-bottom: 0.7em;
 }
 
-.o-typography-body-wrapper ul,
-.o-typography-body-wrapper li {
-  all: unset;
+.o-typography-body-wrapper ul {
+  list-style-type: none;
+  font-size: unset;
+  line-height: unset;
+  li {
+    font-family: $font-sans;
+  }
+
 }
 
 .feed-item,
@@ -336,9 +341,13 @@ header > p {
   }
 }
 
-.o-buttons--big__reset {
+.o-buttons--big.reset {
   margin: 0 auto;
   margin-top: 12px;
+}
+
+.o-buttons--big.load-more {
+  margin: 0 auto;
 }
 
 .search-label {

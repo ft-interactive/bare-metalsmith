@@ -20,6 +20,9 @@ const collectionsLookup = {
 };
 const customSearch = document.getElementById('custom-search');
 const $ = window.jQuery;
+const listLength = feed.items.length;
+let numVisibleItems = 10;
+let numHiddenItems = listLength - numVisibleItems;
 
 function filterByCollection(collectionName) {
   feed.filter((item) => {
@@ -64,7 +67,12 @@ function initFilters() {
 }
 
 window.onload = () => {
+  feed.show(1, numVisibleItems);
+
   initFilters();
+
+  console.log(`Showing list items 1-${numVisibleItems} of ${listLength}`);
+  console.log(`${numHiddenItems} items hidden`);
 };
 
 // Custom search, restricted to 'company' field only
@@ -86,4 +94,22 @@ uniqueCompanies = new Set(allCompanies);
 
 $('#custom-search').autocomplete({
   source: Array.from(uniqueCompanies),
+});
+
+// "Load more" functionality
+$('#load-more').click(() => {
+  if (numHiddenItems >= 10) {
+    numVisibleItems += 10;
+    numHiddenItems -= 10;
+  } else {
+    numVisibleItems += numHiddenItems;
+    numHiddenItems = 0;
+
+    $('#load-more').hide();
+  }
+
+  feed.show(1, numVisibleItems);
+
+  console.log(`Showing list items 1-${numVisibleItems} of ${listLength}`);
+  console.log(`${numHiddenItems} items hidden`);
 });
