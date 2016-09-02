@@ -56,13 +56,23 @@ function initFilters() {
       filterByCollection(collectionsLookup[button.id]);
 
       el.classList.add('clicked');
+
+      feed.show(1, listLength);
+
+      $('#load-more').hide();
     };
   });
 
   resetFilter.onclick = () => {
     feed.filter();
+
+    feed.show(1, numVisibleItems);
+
     clearClicked();
-    console.log('Filter reset');
+
+    $('#load-more').show();
+
+    console.log('Filters reset');
   };
 }
 
