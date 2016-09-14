@@ -17,6 +17,7 @@ const collectionsLookup = {
   outlook: 'Outlook Warning',
   'profit-fall': 'Profit Fall',
   'revenue-fall': 'Revenue Fall',
+  dividends: 'Dividends',
 };
 const customSearch = document.getElementById('custom-search');
 const $ = window.jQuery;
