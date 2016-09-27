@@ -93,7 +93,7 @@ var y = d3.scale.linear()
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient('bottom')
-    .ticks(Math.max(Math.ceil(width / 68), 4))
+    .ticks(4)
     .tickFormat(timeFormat)
     .outerTickSize(0);
 
@@ -173,7 +173,7 @@ d3.csv('gdpusd.csv', function (error, data) {
         .attr('transform', 'translate(' + width + ',0)')
         .call(yAxis);
 
-    xAxis.ticks(Math.max(Math.ceil(width / 68), 4));
+    xAxis.ticks(4);
 
     yAxis.tickSize(-width);
 
