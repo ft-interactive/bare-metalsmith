@@ -121,6 +121,6 @@ $('#load-more').click(() => {
 
   feed.show(1, numVisibleItems);
 
-  console.log(`Showing list items 1-${numVisibleItems} of ${listLength}`);
-  console.log(`${numHiddenItems} items hidden`);
+  // console.log(`Showing list items 1-${numVisibleItems} of ${listLength}`);
+  // console.log(`${numHiddenItems} items hidden`);
 });
