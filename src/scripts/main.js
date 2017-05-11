@@ -18,6 +18,9 @@ const collectionsLookup = {
   'profit-fall': 'Profit Fall',
   'revenue-fall': 'Revenue Fall',
   dividends: 'Dividends',
+  'office-moves': 'Office Moves',
+  'job-cuts': 'Job Cuts',
+  'jobs-outlook': 'Jobs Outlook',
 };
 const customSearch = document.getElementById('custom-search');
 const $ = window.jQuery;
